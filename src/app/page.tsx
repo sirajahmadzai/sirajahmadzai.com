@@ -18,7 +18,7 @@ export default function HomePage() {
                     Software Engineer & Entrepreneur
                   </Badge>
                   <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                    Hi, I'm <span className="text-primary">Siraj Ahmadzai</span>
+                    Hi, I&apos;m <span className="text-primary">Siraj Ahmadzai</span>
                   </h1>
                   <p className="text-xl text-muted-foreground max-w-[600px]">
                     I build innovative software solutions and help businesses transform their ideas into reality.
@@ -87,7 +87,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold mb-4">Software Engineer</h3>
                     <p className="text-muted-foreground mb-4">
                       With expertise in modern web technologies, I specialize in building scalable applications using
-                      React, Next.js, Node.js, and cloud platforms. I'm passionate about clean code, performance
+                      React, Next.js, Node.js, and cloud platforms. I&apos;m passionate about clean code, performance
                       optimization, and creating seamless user experiences.
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -120,8 +120,8 @@ export default function HomePage() {
 
               <div className="mt-12 text-center">
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  I believe in the power of technology to solve real-world problems. Whether it's building the next
-                  breakthrough application or helping a business streamline their operations, I'm committed to delivering
+                  I believe in the power of technology to solve real-world problems. Whether it&apos;s building the next
+                  breakthrough application or helping a business streamline their operations, I&apos;m committed to delivering
                   solutions that create lasting impact.
                 </p>
               </div>
@@ -134,9 +134,9 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">Let's Work Together</h2>
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">Let&apos;s Work Together</h2>
                 <p className="text-lg text-muted-foreground">
-                  Ready to bring your ideas to life? I'd love to hear from you.
+                  Ready to bring your ideas to life? I&apos;d love to hear from you.
                 </p>
               </div>
 
