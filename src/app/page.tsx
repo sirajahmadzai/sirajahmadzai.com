@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -33,7 +33,9 @@ export default function HomePage() {
                     </a>
                   </Button>
                   <Button variant="outline" size="lg" className="w-fit bg-transparent">
-                    View My Work
+                    <a href="#projects">
+                      View My Work
+                    </a>
                   </Button>
                 </div>
                 <div className="flex gap-4">
@@ -124,6 +126,121 @@ export default function HomePage() {
                   breakthrough application or helping a business streamline their operations, I&apos;m committed to delivering
                   solutions that create lasting impact.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="py-20">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">Featured Projects</h2>
+                <p className="text-lg text-muted-foreground">Some of my recent work and side projects</p>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-2">
+                <Card className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between">
+                        <h3 className="text-xl font-semibold">Keyword Research Panel</h3>
+                        <Badge variant="secondary">Latest</Badge>
+                      </div>
+                      <p className="text-muted-foreground">
+                        A comprehensive keyword research tool that helps content creators and marketers discover 
+                        high-value keywords, analyze search trends, and optimize their content strategy. Built with 
+                        modern web technologies for optimal performance and user experience.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline">React</Badge>
+                        <Badge variant="outline">Next.js</Badge>
+                        <Badge variant="outline">TypeScript</Badge>
+                        <Badge variant="outline">Vercel</Badge>
+                      </div>
+                      <div className="flex gap-3 pt-2">
+                        <Link
+                          href="https://github.com/sirajahmadzai/keyword-research-panel"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Github className="h-4 w-4" />
+                          Source Code
+                        </Link>
+                        <Link
+                          href="https://keyword-research-panel.vercel.app"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Live Demo
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between">
+                        <h3 className="text-xl font-semibold">Personal Portfolio</h3>
+                        <Badge variant="secondary">Portfolio</Badge>
+                      </div>
+                      <p className="text-muted-foreground">
+                        My personal website showcasing my skills, experience, and projects. Built with Next.js 
+                        and modern design principles to create an engaging and professional online presence.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline">Next.js</Badge>
+                        <Badge variant="outline">React</Badge>
+                        <Badge variant="outline">TypeScript</Badge>
+                        <Badge variant="outline">Tailwind CSS</Badge>
+                      </div>
+                      <div className="flex gap-3 pt-2">
+                        <Link
+                          href="https://github.com/sirajahmadzai/sirajahmadzai.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Github className="h-4 w-4" />
+                          Source Code
+                        </Link>
+                        <Link
+                          href="https://sirajahmadzai.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Live Site
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="mt-12 text-center">
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  I'm constantly working on new projects and exploring emerging technologies. 
+                  Check out my GitHub for more of my work and contributions to open source projects.
+                </p>
+                <div className="mt-6">
+                  <Link
+                    href="https://github.com/sirajahmadzai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary hover:underline"
+                  >
+                    <Github className="h-5 w-5" />
+                    View All Projects on GitHub
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
