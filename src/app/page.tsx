@@ -227,7 +227,7 @@ export default function HomePage() {
 
               <div className="mt-12 text-center">
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  I'm constantly working on new projects and exploring emerging technologies. 
+                  I&apos;m constantly working on new projects and exploring emerging technologies. 
                   Check out my GitHub for more of my work and contributions to open source projects.
                 </p>
                 <div className="mt-6">
