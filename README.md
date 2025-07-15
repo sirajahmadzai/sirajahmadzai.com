@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Siraj Ahmadzai - Personal Portfolio
 
-## Getting Started
+Welcome to my personal portfolio website! This is a modern, responsive website built with Next.js that showcases my skills, experience, and projects as a Software Engineer & Entrepreneur.
 
-First, run the development server:
+## 🚀 Live Site
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Visit my portfolio at: [https://sirajahmadzai.com](https://sirajahmadzai.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Modern Design**: Clean, professional design with smooth animations and hover effects
+- **Responsive Layout**: Optimized for desktop, tablet, and mobile devices
+- **Interactive Projects Section**: Showcases my latest work including the Keyword Research Panel
+- **Contact Form**: Integrated contact form for easy communication
+- **SEO Optimized**: Built with Next.js for optimal performance and SEO
+- **Dark/Light Mode Ready**: Built with Tailwind CSS and shadcn/ui components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies Used
 
-## Learn More
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Form Handling**: [Formspree](https://formspree.io/)
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Key Sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Hero Section
+- Professional introduction and call-to-action buttons
+- Social media links (GitHub, LinkedIn)
+- Professional headshot
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### About Section
+- Software Engineer expertise and technologies
+- Entrepreneurial experience and services
+- Personal philosophy and approach
 
-## Deploy on Vercel
+### Projects Section
+- **Keyword Research Panel**: Latest project with live demo and source code
+- **Personal Portfolio**: This website itself
+- Technology badges and project descriptions
+- Direct links to GitHub repositories and live demos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Contact Section
+- Contact information (email, phone, location)
+- Integrated contact form
+- Social media links
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Want to Create Your Own Portfolio?
+
+This portfolio is open source and can serve as a great starting point for your own personal website! Here's how you can use it:
+
+### Quick Start
+1. **Fork this repository** on GitHub
+2. **Clone your fork** locally
+3. **Customize the content** in `src/app/page.tsx`
+4. **Update contact information** and social links
+5. **Add your own projects** to the projects section
+6. **Deploy to Vercel** for free hosting
+
+### Key Files to Customize
+- `src/app/page.tsx` - Main content and layout
+- `public/images/me.jpg` - Your profile photo
+- Contact form endpoint in the form action
+- Social media links throughout the site
+
+### Adding Your Projects
+The projects section uses a simple card layout that's easy to customize. Each project card includes:
+- Project title and description
+- Technology badges
+- Links to source code and live demo
+- Hover effects and animations
+
+### Deployment
+- **Vercel** (recommended): Connect your GitHub repo for automatic deployments
+- **Netlify**: Upload your built files or connect your repo
+- **GitHub Pages**: Use the `gh-pages` branch
+
+## 📞 Contact
+
+- **Email**: siraj.ahmadzai@carleton.ca
+- **Phone**: +1 (613) 709-2285
+- **Location**: Ottawa, ON, Canada
+- **GitHub**: [@sirajahmadzai](https://github.com/sirajahmadzai)
+- **LinkedIn**: [@sahmadzai](https://linkedin.com/in/sahmadzai)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ by Siraj Ahmadzai
