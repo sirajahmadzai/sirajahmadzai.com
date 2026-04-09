@@ -1,8 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const ADMIN_PIN = "2026";
+
+interface VisitorEntry {
+  ts: string;
+  ip: string;
+  device: string;
+  browser: string;
+  country: string;
+  city: string;
+  ref: string;
+  path: string;
+}
 
 const days = [
   {
@@ -250,6 +262,46 @@ export default function BanffTrip() {
   const [pendingCheck, setPendingCheck] = useState<number | null>(null);
   const [pinError, setPinError] = useState(false);
 
+  // Admin panel state
+  const [showAdmin, setShowAdmin] = useState(false);
+  const [visitors, setVisitors] = useState<VisitorEntry[]>([]);
+  const [visitorTotal, setVisitorTotal] = useState(0);
+  const [adminLoading, setAdminLoading] = useState(false);
+
+  // Tracking pixel: fire once on page load
+  useEffect(() => {
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ref: document.referrer,
+        path: window.location.pathname,
+      }),
+    }).catch(() => {});
+  }, []);
+
+  // Fetch visitors for admin panel
+  const fetchVisitors = useCallback(async () => {
+    setAdminLoading(true);
+    try {
+      const res = await fetch(`/api/track?pin=${ADMIN_PIN}`);
+      if (res.ok) {
+        const data = await res.json();
+        setVisitors(data.visitors || []);
+        setVisitorTotal(data.total || 0);
+      }
+    } catch { /* noop */ }
+    setAdminLoading(false);
+  }, []);
+
+  // Auto-refresh admin panel every 30s when open
+  useEffect(() => {
+    if (!showAdmin || !unlocked) return;
+    fetchVisitors();
+    const interval = setInterval(fetchVisitors, 30000);
+    return () => clearInterval(interval);
+  }, [showAdmin, unlocked, fetchVisitors]);
+
   const toggleDay = (index: number) => {
     setActiveDay(activeDay === index ? null : index);
   };
@@ -279,6 +331,9 @@ export default function BanffTrip() {
         if (typeof window !== "undefined") {
           localStorage.setItem(`trip-check-${pendingCheck}`, String(next[pendingCheck]));
         }
+      } else {
+        // Opened from admin dots, show admin panel
+        setShowAdmin(true);
       }
       setPendingCheck(null);
       setPinError(false);
@@ -333,23 +388,29 @@ export default function BanffTrip() {
       )}
 
       {/* Hero */}
-      <div className="relative py-32 sm:py-40 px-4 text-center border-b border-neutral-800 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-[center_65%] sm:bg-[center_60%] bg-no-repeat"
-          style={{ backgroundImage: "url('/images/banff-hero.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#0a0a0a]" />
-        <div className="relative z-10">
-        <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-2">
+      <div className="relative border-b border-neutral-800 overflow-hidden">
+        <div className="relative aspect-[3/2] sm:aspect-[21/9]">
+          <img
+            src="/images/banff-hero.jpg"
+            alt="The crew standing in the water"
+            className="absolute inset-0 w-full h-full object-cover object-[center_55%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 px-4 pb-6 sm:pb-10 text-center">
+        <p className="text-cyan-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-1 sm:mb-2 drop-shadow">
           June 28 - July 7, 2026
         </p>
-        <h1 className="text-4xl sm:text-5xl font-black text-white mb-2 drop-shadow-lg">
+        <h1 className="text-3xl sm:text-5xl font-black text-white mb-1 sm:mb-2 drop-shadow-lg">
           Banff & Vancouver
         </h1>
-        <p className="text-neutral-300 text-lg drop-shadow">
+        <p className="text-neutral-200 text-sm sm:text-lg drop-shadow">
           Ottawa to the Rockies. 10 Days. 4 SUVs. 1 Crew.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          </div>
+        </div>
+        <div className="px-4 py-4 sm:py-6 bg-[#0a0a0a]">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto">
           {[
             { value: "4,630", label: "KM Driven" },
             { value: "10", label: "Days" },
@@ -358,10 +419,10 @@ export default function BanffTrip() {
           ].map((s) => (
             <div
               key={s.label}
-              className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center"
+              className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 sm:p-4 text-center flex-1 min-w-[70px]"
             >
-              <p className="text-2xl font-bold text-white">{s.value}</p>
-              <p className="text-xs text-neutral-400 uppercase tracking-wide">
+              <p className="text-xl sm:text-2xl font-bold text-white">{s.value}</p>
+              <p className="text-[0.6rem] sm:text-xs text-neutral-500 uppercase tracking-wide">
                 {s.label}
               </p>
             </div>
@@ -562,9 +623,93 @@ export default function BanffTrip() {
         </div>
       </div>
 
+      {/* Admin Panel */}
+      <div className="max-w-4xl mx-auto px-4 pb-16">
+        <button
+          onClick={() => {
+            if (!unlocked) {
+              setPendingCheck(null);
+              setPinInput("");
+              setPinError(false);
+              setShowPinModal(true);
+            } else {
+              setShowAdmin(!showAdmin);
+            }
+          }}
+          className="w-full text-center text-xs text-neutral-700 hover:text-neutral-500 py-2 transition-colors"
+        >
+          {showAdmin ? "Hide Admin" : "\u2022 \u2022 \u2022"}
+        </button>
+        {showAdmin && unlocked && (
+          <div className="mt-3 border border-neutral-800 rounded-xl p-6 bg-neutral-900/50">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                Visitor Log
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-cyan-400 font-semibold">{visitorTotal} total</span>
+                <button
+                  onClick={fetchVisitors}
+                  className="text-xs text-neutral-500 hover:text-neutral-300 px-2 py-1 rounded bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                >
+                  {adminLoading ? "..." : "Refresh"}
+                </button>
+              </div>
+            </div>
+            {visitors.length === 0 && !adminLoading && (
+              <p className="text-neutral-600 text-sm">No visitors yet.</p>
+            )}
+            {visitors.length > 0 && (
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="text-neutral-500 text-left border-b border-neutral-800">
+                      <th className="pb-2 pr-3 font-medium">Time</th>
+                      <th className="pb-2 pr-3 font-medium">Device</th>
+                      <th className="pb-2 pr-3 font-medium">Browser</th>
+                      <th className="pb-2 pr-3 font-medium">Location</th>
+                      <th className="pb-2 font-medium">Referrer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {visitors.slice(0, 50).map((v, i) => (
+                      <tr key={i} className="border-b border-neutral-800/50 text-neutral-400">
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-300">
+                          {new Date(v.ts).toLocaleDateString("en-CA", { month: "short", day: "numeric" })}{" "}
+                          {new Date(v.ts).toLocaleTimeString("en-CA", { hour: "2-digit", minute: "2-digit" })}
+                        </td>
+                        <td className="py-2 pr-3 whitespace-nowrap">
+                          <span className="inline-flex items-center gap-1">
+                            {v.device === "iOS" || v.device === "Mac" ? "\uD83C\uDF4F" : v.device === "Android" ? "\uD83E\uDD16" : v.device === "Windows" ? "\uD83E\uDE9F" : "\uD83D\uDDA5\uFE0F"}
+                            {v.device}
+                          </span>
+                        </td>
+                        <td className="py-2 pr-3 whitespace-nowrap">{v.browser}</td>
+                        <td className="py-2 pr-3 whitespace-nowrap">
+                          {v.city && v.country ? `${v.city}, ${v.country}` : v.country || "Unknown"}
+                        </td>
+                        <td className="py-2 text-neutral-600 truncate max-w-[150px]">{v.ref || "Direct"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {visitors.length > 50 && (
+                  <p className="text-neutral-600 text-xs mt-2">Showing 50 of {visitors.length}</p>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
       <footer className="text-center py-8 text-neutral-600 text-xs border-t border-neutral-800">
         Built for the boys. Summer 2026.
       </footer>
+      <Analytics />
     </div>
   );
 }
