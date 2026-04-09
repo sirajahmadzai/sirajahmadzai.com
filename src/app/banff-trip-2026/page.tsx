@@ -117,7 +117,7 @@ const days = [
       { time: "10:45 AM", text: "Bow Falls. 5 min walk from Surprise Corner. Free.", tags: ["activity"] },
       { time: "11:15 AM", text: "Drive to Cascade Ponds.", tags: ["drive"] },
       { time: "11:30 AM", text: "HALAL PICNIC at Cascade Ponds. Spread out naan, kebab, salad, watermelon, green tea (all prepped the night before at Canmore kitchen). Dhuhr prayer by the water. 1.5 hours.", tags: ["food", "prayer"] },
-      { time: "1:00 PM", text: "Banff Avenue. Walk, browse shops, buy souvenirs for family back home. 1.5 hours.", tags: ["activity"] },
+      { time: "1:00 PM", text: "Banff Avenue. Walk, browse shops, grab snacks. 1.5 hours.", tags: ["activity"] },
       { time: "2:30 PM", text: "Tunnel Mountain hike. 4.3 km round trip, 1.5 hrs, 360\u00b0 views. Teens + fit adults. Younger ones and elders can do the flat Fenland Trail instead.", tags: ["activity"] },
       { time: "4:00 PM", text: "Asr prayer. Two Jack Lake. Less crowded. Skip rocks. Rest. 1 hour.", tags: ["prayer", "activity"] },
       { time: "7:30 PM", text: "SUNSET at Vermilion Lakes. Mt. Rundle reflection. Best sunset in Banff. Free. Group photo.", tags: ["activity", "photo"] },
