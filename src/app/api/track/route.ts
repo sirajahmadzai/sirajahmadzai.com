@@ -15,11 +15,16 @@ interface Visitor {
 
 function parseUA(ua: string): { device: string; browser: string } {
   let device = "Desktop";
-  if (/iPhone|iPad|iPod/i.test(ua)) device = "iOS";
-  else if (/Android/i.test(ua)) device = "Android";
+  const isMobile = /Mobile|Android|iPhone|iPod|iPad|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+  if (/iPhone|iPod/i.test(ua)) device = "iPhone";
+  else if (/iPad/i.test(ua)) device = "iPad";
+  else if (/Android/i.test(ua) && isMobile) device = "Android";
+  else if (/Android/i.test(ua)) device = "Android Tablet";
+  else if (/Mac/i.test(ua) && isMobile) device = "iPhone";
   else if (/Mac/i.test(ua)) device = "Mac";
   else if (/Windows/i.test(ua)) device = "Windows";
   else if (/Linux/i.test(ua)) device = "Linux";
+  else if (isMobile) device = "Mobile";
 
   let browser = "Other";
   if (/Edg\//i.test(ua)) browser = "Edge";
