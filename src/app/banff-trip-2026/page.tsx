@@ -12,8 +12,14 @@ interface VisitorEntry {
   browser: string;
   country: string;
   city: string;
+  region: string;
   ref: string;
   path: string;
+  screen: string;
+  lang: string;
+  tz: string;
+  connection: string;
+  returning: boolean;
 }
 
 const days = [
@@ -253,12 +259,18 @@ export default function BanffTrip() {
 
   // Tracking pixel: fire once on page load
   useEffect(() => {
+    const nav = navigator as unknown as Record<string, unknown>;
+    const conn = (nav.connection || nav.mozConnection || nav.webkitConnection) as Record<string, unknown> | undefined;
     fetch("/api/track", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ref: document.referrer,
         path: window.location.pathname,
+        screen: `${window.screen.width}x${window.screen.height}`,
+        lang: navigator.language,
+        tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        connection: conn?.effectiveType || "",
       }),
     }).catch(() => {});
   }, []);
@@ -654,8 +666,11 @@ export default function BanffTrip() {
                       <th className="pb-2 pr-3 font-medium">Time</th>
                       <th className="pb-2 pr-3 font-medium">Device</th>
                       <th className="pb-2 pr-3 font-medium">Browser</th>
+                      <th className="pb-2 pr-3 font-medium">Screen</th>
                       <th className="pb-2 pr-3 font-medium">Location</th>
-                      <th className="pb-2 font-medium">Referrer</th>
+                      <th className="pb-2 pr-3 font-medium">TZ / Lang</th>
+                      <th className="pb-2 pr-3 font-medium">Net</th>
+                      <th className="pb-2 font-medium">Ref</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -667,15 +682,21 @@ export default function BanffTrip() {
                         </td>
                         <td className="py-2 pr-3 whitespace-nowrap">
                           <span className="inline-flex items-center gap-1">
-                            {v.device === "iOS" || v.device === "Mac" ? "\uD83C\uDF4F" : v.device === "Android" ? "\uD83E\uDD16" : v.device === "Windows" ? "\uD83E\uDE9F" : "\uD83D\uDDA5\uFE0F"}
+                            {v.device === "iPhone" || v.device === "iPad" || v.device === "Mac" ? "\uD83C\uDF4F" : v.device === "Android" || v.device === "Android Tablet" ? "\uD83E\uDD16" : v.device === "Windows" ? "\uD83E\uDE9F" : "\uD83D\uDDA5\uFE0F"}
                             {v.device}
                           </span>
+                          {v.returning && <span className="ml-1 text-cyan-400" title="Returning visitor">\u21BB</span>}
                         </td>
                         <td className="py-2 pr-3 whitespace-nowrap">{v.browser}</td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">{v.screen || "-"}</td>
                         <td className="py-2 pr-3 whitespace-nowrap">
-                          {v.city && v.country ? `${v.city}, ${v.country}` : v.country || "Unknown"}
+                          {v.city && v.region && v.country ? `${v.city}, ${v.region}, ${v.country}` : v.city && v.country ? `${v.city}, ${v.country}` : v.country || "Unknown"}
                         </td>
-                        <td className="py-2 text-neutral-600 truncate max-w-[150px]">{v.ref || "Direct"}</td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">
+                          {v.tz ? v.tz.split("/").pop()?.replace(/_/g, " ") : "-"}{v.lang ? ` / ${v.lang}` : ""}
+                        </td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">{v.connection || "-"}</td>
+                        <td className="py-2 text-neutral-600 truncate max-w-[120px]">{v.ref || "Direct"}</td>
                       </tr>
                     ))}
                   </tbody>

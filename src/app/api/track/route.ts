@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { put, list, head } from "@vercel/blob";
+import { put, list } from "@vercel/blob";
 
 interface Visitor {
   ts: string;
@@ -9,8 +9,14 @@ interface Visitor {
   browser: string;
   country: string;
   city: string;
+  region: string;
   ref: string;
   path: string;
+  screen: string;
+  lang: string;
+  tz: string;
+  connection: string;
+  returning: boolean;
 }
 
 function parseUA(ua: string): { device: string; browser: string } {
@@ -72,22 +78,33 @@ export async function POST(req: NextRequest) {
     const ua = req.headers.get("user-agent") || "";
     const country = req.headers.get("x-vercel-ip-country") || "";
     const city = req.headers.get("x-vercel-ip-city") || "";
+    const region = req.headers.get("x-vercel-ip-country-region") || "";
     const body = await req.json().catch(() => ({}));
     const { device, browser } = parseUA(ua);
+    const hashedIP = hashIP(ip);
+
+    // Check if returning visitor
+    let visitors = await readLog();
+    const returning = visitors.some((v) => v.ip === hashedIP);
 
     const visitor: Visitor = {
       ts: new Date().toISOString(),
-      ip: hashIP(ip),
-      ua: ua.slice(0, 120),
+      ip: hashedIP,
+      ua: ua.slice(0, 200),
       device,
       browser,
       country,
       city: decodeURIComponent(city),
+      region: decodeURIComponent(region),
       ref: (body.ref || "").slice(0, 200),
       path: (body.path || "/banff-trip-2026").slice(0, 100),
+      screen: (body.screen || "").slice(0, 20),
+      lang: (body.lang || "").slice(0, 10),
+      tz: (body.tz || "").slice(0, 40),
+      connection: (body.connection || "").slice(0, 10),
+      returning,
     };
 
-    let visitors = await readLog();
     visitors.push(visitor);
 
     // Keep last 500 entries
