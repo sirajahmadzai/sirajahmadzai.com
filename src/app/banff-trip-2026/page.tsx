@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Analytics } from "@vercel/analytics/react";
 
-const ADMIN_PIN = "2026";
+const ADMIN_PIN = "5405";
 
 interface VisitorEntry {
   ts: string;

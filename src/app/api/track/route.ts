@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const pin = req.nextUrl.searchParams.get("pin");
-  if (pin !== "2026") {
+  if (pin !== "5405") {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
