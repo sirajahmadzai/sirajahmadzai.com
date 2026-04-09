@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { put, list } from "@vercel/blob";
+import { put, list, head } from "@vercel/blob";
 
 interface Visitor {
   ts: string;
@@ -38,6 +38,29 @@ function hashIP(ip: string): string {
   return Math.abs(h).toString(36);
 }
 
+async function readLog(): Promise<Visitor[]> {
+  try {
+    const { blobs } = await list({ prefix: "visitors/" });
+    if (blobs.length === 0) return [];
+    const sorted = blobs.sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime());
+    const url = sorted[0].url;
+    const res = await fetch(url + "?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+async function writeLog(visitors: Visitor[]): Promise<void> {
+  await put("visitors/log.json", JSON.stringify(visitors), {
+    access: "public",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    contentType: "application/json",
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -59,19 +82,7 @@ export async function POST(req: NextRequest) {
       path: (body.path || "/banff-trip-2026").slice(0, 100),
     };
 
-    // Read existing log
-    let visitors: Visitor[] = [];
-    try {
-      const { blobs } = await list({ prefix: "visitors/" });
-      if (blobs.length > 0) {
-        const latest = blobs.sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime())[0];
-        const res = await fetch(latest.url);
-        visitors = await res.json();
-      }
-    } catch {
-      visitors = [];
-    }
-
+    let visitors = await readLog();
     visitors.push(visitor);
 
     // Keep last 500 entries
@@ -79,14 +90,12 @@ export async function POST(req: NextRequest) {
       visitors = visitors.slice(-500);
     }
 
-    await put("visitors/log.json", JSON.stringify(visitors), {
-      access: "public",
-      addRandomSuffix: false,
-    });
+    await writeLog(visitors);
 
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch {
-    return NextResponse.json({ ok: false }, { status: 500 });
+  } catch (e) {
+    console.error("Track POST error:", e);
+    return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });
   }
 }
 
@@ -97,14 +106,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const { blobs } = await list({ prefix: "visitors/" });
-    if (blobs.length === 0) {
-      return NextResponse.json({ visitors: [], total: 0 });
-    }
-    const latest = blobs.sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime())[0];
-    const res = await fetch(latest.url);
-    const visitors: Visitor[] = await res.json();
-
+    const visitors = await readLog();
     return NextResponse.json({
       visitors: visitors.slice().reverse(),
       total: visitors.length,
