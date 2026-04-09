@@ -62,10 +62,10 @@ export default function HomePage() {
               <div className="relative">
                 <div className="aspect-square relative overflow-hidden rounded-2xl bg-muted">
                   <Image
-                      src="/images/me.jpg?height=500&width=500"
+                      src="/images/me.jpg"
                       alt="Siraj Ahmadzai"
-                      width={300}
-                      height={300}
+                      width={500}
+                      height={500}
                       className="object-cover"
                   />
                 </div>
