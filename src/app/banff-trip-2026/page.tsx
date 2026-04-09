@@ -333,14 +333,20 @@ export default function BanffTrip() {
       )}
 
       {/* Hero */}
-      <div className="py-12 px-4 text-center border-b border-neutral-800 bg-gradient-to-br from-[#0a0a0a] via-[#0f172a] to-[#0a0a0a]">
+      <div className="relative py-20 px-4 text-center border-b border-neutral-800 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/banff-hero.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-[#0a0a0a]" />
+        <div className="relative z-10">
         <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-2">
           June 28 - July 7, 2026
         </p>
-        <h1 className="text-4xl sm:text-5xl font-black text-white mb-2">
+        <h1 className="text-4xl sm:text-5xl font-black text-white mb-2 drop-shadow-lg">
           Banff & Vancouver
         </h1>
-        <p className="text-neutral-400 text-lg">
+        <p className="text-neutral-300 text-lg drop-shadow">
           Ottawa to the Rockies. 10 Days. 4 SUVs. 1 Crew.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -352,14 +358,15 @@ export default function BanffTrip() {
           ].map((s) => (
             <div
               key={s.label}
-              className="bg-[#141414] border border-neutral-800 rounded-xl p-4 text-center"
+              className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center"
             >
               <p className="text-2xl font-bold text-white">{s.value}</p>
-              <p className="text-xs text-neutral-500 uppercase tracking-wide">
+              <p className="text-xs text-neutral-400 uppercase tracking-wide">
                 {s.label}
               </p>
             </div>
           ))}
+        </div>
         </div>
       </div>
 
