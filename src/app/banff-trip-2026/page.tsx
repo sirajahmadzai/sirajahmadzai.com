@@ -333,12 +333,12 @@ export default function BanffTrip() {
       )}
 
       {/* Hero */}
-      <div className="relative py-20 px-4 text-center border-b border-neutral-800 overflow-hidden">
+      <div className="relative py-32 sm:py-40 px-4 text-center border-b border-neutral-800 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
           style={{ backgroundImage: "url('/images/banff-hero.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-[#0a0a0a]" />
         <div className="relative z-10">
         <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-2">
           June 28 - July 7, 2026
