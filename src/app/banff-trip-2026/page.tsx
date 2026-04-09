@@ -414,7 +414,7 @@ export default function BanffTrip() {
           {[
             { value: "4,630", label: "KM Driven" },
             { value: "10", label: "Days" },
-            { value: "6", label: "Provinces" },
+            { value: "5", label: "Provinces" },
             { value: "15-20", label: "Crew" },
           ].map((s) => (
             <div
