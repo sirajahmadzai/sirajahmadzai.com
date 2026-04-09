@@ -9,9 +9,9 @@ const days = [
     subtitle: "680 km \u2022 ~7 hrs driving \u2022 Hwy 417 to Hwy 17 West",
     route: "Stittsville \u2192 Bilal Farms \u2192 Sudbury \u2192 Sault Ste Marie",
     items: [
-      { time: "5:30 AM", text: "Fajr prayer. Load vehicles at the Stittsville meetup point.", tags: ["prayer"] },
-      { time: "6:00 AM", text: "HALAL GROCERY STOP #1 \u2014 Bilal Farms Butcher Shop (2953 Carling Ave, Bayshore area). 15 min from Stittsville, right on your westbound route. Buy: halal deli meats, chicken, bread, wraps, hummus, fruit, drinks, snacks for Days 1-3. Fill all 4 coolers with ice.", tags: ["food"] },
-      { time: "6:45 AM", text: "DEPART. Hwy 417 West to Trans-Canada. Convoy formation: lead car sets pace, tail car confirms everyone through every merge/exit.", tags: ["drive"] },
+      { time: "5:30 AM", text: "Fajr prayer. Meet at the Stittsville pickup point. Final vehicle check, coolers loaded.", tags: ["prayer"] },
+      { time: "6:00 AM", text: "HALAL GROCERY STOP #1 \u2014 Bilal Farms Butcher Shop (2953 Carling Ave, Bayshore area). 15 min from Stittsville, right on your westbound route. Buy: halal deli meats, chicken, bread, wraps, hummus, fruit, drinks, snacks for Days 1-3. Fill all 4 hard-shell coolers with ice.", tags: ["food"] },
+      { time: "6:45 AM", text: "DEPART. Hwy 417 West to Trans-Canada. Lead SUV navigates, everyone follows. All coordination through the WhatsApp group.", tags: ["drive"] },
       { time: "9:00 AM", text: "Pit stop #1: Gas + bathrooms. Arnprior/Renfrew area. 15 min max.", tags: ["drive"] },
       { time: "11:30 AM", text: "Lunch stop: Sudbury area. Packed halal sandwiches/wraps from coolers. Dhuhr prayer. 45 min.", tags: ["food", "prayer"] },
       { time: "12:15 PM", text: "Continue west on Hwy 17.", tags: ["drive"] },
@@ -29,7 +29,7 @@ const days = [
     subtitle: "700 km \u2022 ~7.5 hrs driving \u2022 Hwy 17 North",
     route: "Sault Ste Marie \u2192 Wawa \u2192 White River \u2192 Thunder Bay",
     items: [
-      { time: "5:30 AM", text: "Fajr. Load up.", tags: ["prayer"] },
+      { time: "5:30 AM", text: "Fajr. Gear packed, coolers iced.", tags: ["prayer"] },
       { time: "6:00 AM", text: "DEPART. Trans-Canada wilderness. Gas stations get sparse. Top off ALL vehicles before leaving.", tags: ["drive"] },
       { time: "8:30 AM", text: "Pit stop: Wawa. Gas + stretch. PHOTO STOP: Wawa Goose (giant Canada goose statue). The 8-year-old will love it.", tags: ["drive", "photo"] },
       { time: "10:30 AM", text: "Pit stop: White River area. Gas. 'Coldest Spot in Canada' sign photo.", tags: ["drive", "photo"] },
@@ -48,7 +48,7 @@ const days = [
     subtitle: "700 km \u2022 ~7.5 hrs driving \u2022 Hwy 17 to Trans-Canada Hwy 1",
     route: "Thunder Bay \u2192 Kenora \u2192 Winnipeg",
     items: [
-      { time: "5:30 AM", text: "Fajr. Load up.", tags: ["prayer"] },
+      { time: "5:30 AM", text: "Fajr.", tags: ["prayer"] },
       { time: "6:30 AM", text: "DEPART. Cross into Manitoba today.", tags: ["drive"] },
       { time: "8:30 AM", text: "Pit stop: Kenora, ON. Gas + stretch. Quick Lake of the Woods waterfront look.", tags: ["drive", "activity"] },
       { time: "9:00 AM", text: "Cross Manitoba border. Welcome sign photo.", tags: ["photo"] },
@@ -78,7 +78,7 @@ const days = [
       { time: "3:30 PM", text: "RCMP Heritage Centre. $12/person. Interactive, educational. Great for all ages. 1.5 hours.", tags: ["activity"] },
       { time: "5:00 PM", text: "Wascana Park. Free. Walk the lake, watch the geese, stretch legs.", tags: ["activity"] },
       { time: "6:30 PM", text: "Dinner from packed halal food or local seafood/veggie.", tags: ["food"] },
-      { time: "8:00 PM", text: "Rest early. Tomorrow is a long push to the mountains.", tags: ["prayer"] },
+      { time: "8:00 PM", text: "Isha. Rest early. Tomorrow is a long push to the mountains.", tags: ["prayer"] },
     ],
   },
   {
@@ -87,7 +87,7 @@ const days = [
     subtitle: "850 km \u2022 ~8.5 hrs driving \u2022 Trans-Canada Hwy 1",
     route: "Regina \u2192 Swift Current \u2192 Medicine Hat \u2192 Calgary \u2192 Canmore",
     items: [
-      { time: "5:00 AM", text: "Fajr. Load up. Today you hit the Rockies.", tags: ["prayer"] },
+      { time: "5:00 AM", text: "Fajr. Today you hit the Rockies.", tags: ["prayer"] },
       { time: "5:30 AM", text: "DEPART. Long day but the reward is mountains.", tags: ["drive"] },
       { time: "8:00 AM", text: "Pit stop: Swift Current, SK. Gas + breakfast from coolers.", tags: ["drive"] },
       { time: "10:30 AM", text: "Pit stop: Medicine Hat, AB. Gas. You're in Alberta.", tags: ["drive"] },
@@ -96,7 +96,7 @@ const days = [
       { time: "2:45 PM", text: "Halal lunch in Calgary: Village Pita Bakery or Jimmy's A&A (both well-known Calgary halal spots).", tags: ["food"] },
       { time: "3:45 PM", text: "DEPART for Canmore. 100 km, 1 hr. Watch the Rockies appear on the horizon. This is the moment.", tags: ["drive"] },
       { time: "5:00 PM", text: "ARRIVE CANMORE.", tags: ["drive"] },
-      { time: "5:30 PM", text: "Check in: Canmore Inn & Suites (~$220-300/night) or Rocky Mountain Ski Lodge. 8-10 rooms, 2 nights. MUST BE PRE-BOOKED.", tags: ["hotel"] },
+      { time: "5:30 PM", text: "Check in: Canmore Inn & Suites (~$220-300/night) or Rocky Mountain Ski Lodge. Book suites with kitchenettes so you can cook halal meals. 8-10 rooms, 2 nights. MUST BE PRE-BOOKED.", tags: ["hotel"] },
       { time: "6:30 PM", text: "Walk Canmore Main Street. Mountain views everywhere. Policeman's Creek boardwalk (free, scenic).", tags: ["activity"] },
       { time: "7:30 PM", text: "Cook halal dinner at accommodation using Calgary groceries.", tags: ["food"] },
       { time: "9:00 PM", text: "Isha. Sleep. Tomorrow is the day you came for.", tags: ["prayer"] },
@@ -116,8 +116,8 @@ const days = [
       { time: "10:30 AM", text: "Surprise Corner viewpoint. Iconic Fairmont + Bow River view. Free. 15 min.", tags: ["photo"] },
       { time: "10:45 AM", text: "Bow Falls. 5 min walk from Surprise Corner. Free.", tags: ["activity"] },
       { time: "11:15 AM", text: "Drive to Cascade Ponds.", tags: ["drive"] },
-      { time: "11:30 AM", text: "HALAL PICNIC at Cascade Ponds. Use a portable propane grill (no charcoal/open flame in Banff National Park). Cook Calgary halal meat. Rice, naan, salad. Dhuhr prayer by the water. This is the bonding moment. 1.5 hours.", tags: ["food", "prayer"] },
-      { time: "1:00 PM", text: "Banff Avenue. Walk, browse, ice cream, souvenirs. 1.5 hours.", tags: ["activity"] },
+      { time: "11:30 AM", text: "HALAL PICNIC at Cascade Ponds. Spread out platters of pre-made kebab wraps, marinated chicken naan rolls, hummus, fruit, and drinks (all prepped the night before at Canmore kitchen). Dhuhr prayer by the water. This is the bonding moment. 1.5 hours.", tags: ["food", "prayer"] },
+      { time: "1:00 PM", text: "Banff Avenue. Walk, browse shops, grab snacks. 1.5 hours.", tags: ["activity"] },
       { time: "2:30 PM", text: "Tunnel Mountain hike. 4.3 km round trip, 1.5 hrs, 360\u00b0 views. Teens + fit adults. The 70-year-old + 8-year-old can do the flat Fenland Trail instead.", tags: ["activity"] },
       { time: "4:00 PM", text: "Two Jack Lake. Less crowded. Skip rocks. Rest. 1 hour.", tags: ["activity"] },
       { time: "7:30 PM", text: "SUNSET at Vermilion Lakes. Mt. Rundle reflection. Best sunset in Banff. Free. Group photos. The postcard moment.", tags: ["activity", "photo"] },
@@ -140,8 +140,8 @@ const days = [
       { time: "12:30 PM", text: "Lunch: Packed halal from coolers. Picnic at Herbert Lake pullout. Dhuhr prayer.", tags: ["food", "prayer"] },
       { time: "1:30 PM", text: "Icefields Parkway drive. Go 30-40 km north to Bow Lake + Peyto Lake viewpoint. Stunning turquoise. Short walks. Free with Parks pass. 1.5 hours.", tags: ["activity", "photo"] },
       { time: "3:00 PM", text: "Turn around, drive back south toward Canmore.", tags: ["drive"] },
-      { time: "4:00 PM", text: "Quarry Lake, Canmore. Swimming hole (cold but swimmable). Teens jump in. 70-year-old sits on bench. 1.5 hours.", tags: ["activity"] },
-      { time: "5:30 PM", text: "Back to hotel. Showers. Pack up. Load vehicles.", tags: ["hotel"] },
+      { time: "4:00 PM", text: "Quarry Lake, Canmore. Cold but refreshing in summer. Teens jump in. 70-year-old takes it in from the bench. 1.5 hours.", tags: ["activity"] },
+      { time: "5:30 PM", text: "Back to hotel. Showers. Pack up. Everything loaded for tomorrow's early departure.", tags: ["hotel"] },
       { time: "7:00 PM", text: "FINAL BANFF DINNER. Big group feast from remaining Calgary groceries. Make it legendary.", tags: ["food"] },
       { time: "9:00 PM", text: "Isha. Pack everything. Alarms for 5 AM.", tags: ["prayer"] },
     ],
@@ -152,7 +152,7 @@ const days = [
     subtitle: "850 km \u2022 ~11-12 hrs driving \u2022 Through the mountains",
     route: "Canmore \u2192 Golden \u2192 Rogers Pass \u2192 Revelstoke \u2192 Kamloops \u2192 Hope \u2192 Surrey",
     items: [
-      { time: "5:00 AM", text: "Fajr. Load vehicles. Check out.", tags: ["prayer"] },
+      { time: "5:00 AM", text: "Fajr. Check out.", tags: ["prayer"] },
       { time: "5:30 AM", text: "DEPART CANMORE. Early start, long beautiful day.", tags: ["drive"] },
       { time: "7:00 AM", text: "Golden, BC. Gas + stretch. Kicking Horse River bridge view.", tags: ["drive"] },
       { time: "8:30 AM", text: "Rogers Pass / Glacier National Park. Avalanche sheds, massive scenery. Rogers Pass Discovery Centre (free, 15 min).", tags: ["drive", "activity"] },
@@ -160,7 +160,7 @@ const days = [
       { time: "12:00 PM", text: "Kamloops. Gas + packed halal lunch. Dhuhr prayer. 45 min.", tags: ["drive", "food", "prayer"] },
       { time: "12:45 PM", text: "DEPART Kamloops. Push to Vancouver.", tags: ["drive"] },
       { time: "2:30 PM", text: "Hope, BC. Gas + stretch. Othello Tunnels optional (free, 30 min trail through old railway tunnels).", tags: ["drive", "activity"] },
-      { time: "5:00 PM", text: "ARRIVE SURREY/BURNABY. Budget extra 30-60 min for Metro Vancouver traffic. This is a long day.", tags: ["drive"] },
+      { time: "5:30 PM", text: "ARRIVE SURREY/BURNABY. Budget extra time for Metro Vancouver traffic.", tags: ["drive"] },
       { time: "6:00 PM", text: "Check in: Happy Day Inn Surrey (~$170-250/night) or Travelodge Langley. 8-10 rooms, 2 nights.", tags: ["hotel"] },
       { time: "7:00 PM", text: "HALAL FEAST. You drove across Canada. Celebrate. Pak Punjab Sweet & Samosas House (128 St, Surrey) or Afghan Horsemen (1833 Anderson St, Vancouver). Ask locals for current best halal spot.", tags: ["food"] },
       { time: "8:30 PM", text: "Isha. Rest.", tags: ["prayer"] },
@@ -175,7 +175,7 @@ const days = [
       { time: "6:00 AM", text: "Fajr.", tags: ["prayer"] },
       { time: "7:30 AM", text: "Breakfast. Optional halal grocery stop in Surrey if needed.", tags: ["food"] },
       { time: "8:30 AM", text: "DEPART for Stanley Park. Go early for parking.", tags: ["drive"] },
-      { time: "9:00 AM", text: "Stanley Park Seawall. Walk or rent bikes ($15-20/person). Totem Poles, harbour views, Lions Gate Bridge. 2.5 hours. Free.", tags: ["activity", "photo"] },
+      { time: "9:00 AM", text: "Stanley Park Seawall. Walk the seawall (free) or rent bikes if budget allows (~$15-20/person). Totem Poles, harbour views, Lions Gate Bridge. 2.5 hours.", tags: ["activity", "photo"] },
       { time: "11:30 AM", text: "Granville Island. Public Market, street performers, waterfront. 1 hour.", tags: ["activity"] },
       { time: "12:45 PM", text: "Halal lunch: Afghan Horsemen (1833 Anderson St, well-known Afghan halal) or Donair Dude (multiple locations). Dhuhr prayer.", tags: ["food", "prayer"] },
       { time: "2:00 PM", text: "Lynn Canyon Park. FREE suspension bridge (Capilano charges $65+). Forest walks, waterfalls. All ages. 1.5 hours.", tags: ["activity", "photo"] },
@@ -193,8 +193,8 @@ const days = [
     subtitle: "Vancouver \u2192 Ottawa \u2022 ~4.5 hr flight",
     route: "Surrey \u2192 YVR \u2192 YOW \u2192 HOME",
     items: [
-      { time: "6:00 AM", text: "Fajr. Check out. Load vehicles.", tags: ["prayer"] },
-      { time: "7:00 AM", text: "Optional: Deep Cove (30 min from Surrey). Quiet inlet, mountain reflection, honey doughnuts. 45 min.", tags: ["activity"] },
+      { time: "6:00 AM", text: "Fajr. Check out. Gather all belongings from vehicles.", tags: ["prayer"] },
+      { time: "7:00 AM", text: "Optional: Deep Cove (30 min from Surrey). Quiet inlet, mountain reflection, famous doughnuts (check ingredients). 45 min.", tags: ["activity"] },
       { time: "8:30 AM", text: "Return rental vehicles near YVR/Richmond. Allow 1 hour for returns + shuttle to terminal.", tags: ["drive"] },
       { time: "10:00 AM", text: "Arrive YVR airport. Check in. Check bags. Security.", tags: ["flight"] },
       { time: "11:00 AM", text: "Dhuhr prayer at YVR multi-faith room (post-security).", tags: ["prayer"] },
@@ -207,15 +207,16 @@ const days = [
 const checklistItems = [
   { text: "Book Canmore hotels (8-10 rooms, 2 nights)", urgent: true },
   { text: "Book YVR \u2192 YOW flights (15-20 tickets)", urgent: true },
-  { text: "Book one-way vehicle rentals (4 SUVs/minivans, Ottawa \u2192 Vancouver)", urgent: false },
+  { text: "Book one-way vehicle rentals (4 full-size SUVs, Ottawa \u2192 Vancouver)", urgent: false },
   { text: "Try booking Moraine Lake shuttle (reservation.pc.gc.ca) but don't count on it for 20 people", urgent: false },
-  { text: "Buy portable propane grill + propane canisters for Banff picnic (no charcoal allowed)", urgent: false },
   { text: "Buy Parks Canada passes online", urgent: false },
   { text: "Confirm 8+ designated drivers", urgent: false },
   { text: "Buy 4 large coolers + ice packs", urgent: false },
-  { text: "Set up WhatsApp convoy group for all drivers", urgent: false },
+  { text: "Create WhatsApp group for the trip (all drivers + passengers)", urgent: false },
   { text: "Verify halal status of all restaurants 1-2 weeks before", urgent: false },
-  { text: "Each vehicle: chargers, first aid, prayer mats, water, snacks, walkie-talkie", urgent: false },
+  { text: "Each vehicle: chargers, first aid kit, prayer mats, water, snacks, phone mounts", urgent: false },
+  { text: "Book Canmore suites with kitchenettes (needed to cook halal meals)", urgent: false },
+  { text: "Prep Banff picnic platters the night before at Canmore kitchen", urgent: false },
 ];
 
 const tagConfig: Record<string, { bg: string; text: string; label: string }> = {
@@ -265,7 +266,7 @@ export default function BanffTrip() {
           Banff & Vancouver
         </h1>
         <p className="text-neutral-400 text-lg">
-          Ottawa to the Rockies. 10 Days. 4 Trucks. 1 Crew.
+          Ottawa to the Rockies. 10 Days. 4 SUVs. 1 Crew.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           {[
