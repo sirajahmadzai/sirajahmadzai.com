@@ -269,14 +269,14 @@ export default function BanffTrip() {
           Banff & Vancouver
         </h1>
         <p className="text-neutral-400 text-lg">
-          Ottawa to the Rockies. 10 Days. 4 SUVs. All Brothers.
+          Ottawa to the Rockies. 10 Days. 4 SUVs. 1 Crew.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           {[
             { value: "4,350", label: "KM Driven" },
             { value: "10", label: "Days" },
             { value: "6", label: "Provinces" },
-            { value: "15-20", label: "Brothers" },
+            { value: "15-20", label: "Crew" },
           ].map((s) => (
             <div
               key={s.label}
