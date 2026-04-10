@@ -623,11 +623,11 @@ export default function BanffTrip() {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
             {[
-              { label: "SUV Rental (split 5/car)", value: "$600" },
-              { label: "Gas (~$1,146/car ÷ 5)", value: "$229" },
-              { label: "Hotels (8 nights)", value: "$400" },
-              { label: "Flight YVR→YOW", value: "$200" },
-              { label: "Food (10 days)", value: "$150" },
+              { label: "SUV Rental (split 5/car)", value: "$600 - $750" },
+              { label: "Gas (~$1,200/car ÷ 5)", value: "$240" },
+              { label: "Hotels (8 nights)", value: "$400 - $500" },
+              { label: "Flight YVR→YOW", value: "$200 - $300" },
+              { label: "Food (10 days)", value: "$150 - $200" },
               { label: "Parks / Activities", value: "FREE" },
             ].map((c) => (
               <div key={c.label}>
@@ -640,11 +640,11 @@ export default function BanffTrip() {
             <div className="flex justify-between items-center">
               <p className="text-neutral-400 font-medium">Total Per Person</p>
               <p className="text-2xl font-black text-cyan-400">
-                ~$1,600
+                $1,600 - $1,900
               </p>
             </div>
             <p className="text-neutral-600 text-xs mt-2">
-              Gas: 4,630 km x 15 L/100km x $1.65/L = ~$1,146/car. Hotels: cheapest rooms, 2/room. SUV: $3,000/vehicle (book early, call for quotes). Flight: WestJet 1-stop at $199, carry-on only. Food: cook everything, buy in bulk. Parks Canada free Jun 19 - Sep 7 (Canada Strong Pass).
+              Gas: 4,630 km x 16 L/100km x $1.80/L = ~$1,200/car. Hotels: budget rooms, 2/room. SUV: $3,000-3,750/vehicle (book early, call for quotes). Flights: book early on WestJet/Flair. Food: mostly cooking, bulk grocery runs. Parks Canada free Jun 19 - Sep 7 (Canada Strong Pass).
             </p>
           </div>
         </div>
