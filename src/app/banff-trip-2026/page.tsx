@@ -13,6 +13,8 @@ interface VisitorEntry {
   country: string;
   city: string;
   region: string;
+  lat: string;
+  lng: string;
   ref: string;
   path: string;
   screen: string;
@@ -20,6 +22,16 @@ interface VisitorEntry {
   tz: string;
   connection: string;
   returning: boolean;
+  fingerprint: string;
+  gpu: string;
+  cores: number;
+  ram: number;
+  dpr: number;
+  touch: number;
+  depth: number;
+  platform: string;
+  battery: string;
+  adblock: boolean;
 }
 
 const days = [
@@ -259,20 +271,87 @@ export default function BanffTrip() {
 
   // Tracking pixel: fire once on page load
   useEffect(() => {
-    const nav = navigator as unknown as Record<string, unknown>;
-    const conn = (nav.connection || nav.mozConnection || nav.webkitConnection) as Record<string, unknown> | undefined;
-    fetch("/api/track", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ref: document.referrer,
-        path: window.location.pathname,
-        screen: `${window.screen.width}x${window.screen.height}`,
-        lang: navigator.language,
-        tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        connection: conn?.effectiveType || "",
-      }),
-    }).catch(() => {});
+    (async () => {
+      const nav = navigator as unknown as Record<string, unknown>;
+      const conn = (nav.connection || nav.mozConnection || nav.webkitConnection) as Record<string, unknown> | undefined;
+
+      // Canvas fingerprint
+      let fingerprint = "";
+      try {
+        const c = document.createElement("canvas");
+        c.width = 200; c.height = 50;
+        const ctx = c.getContext("2d");
+        if (ctx) {
+          ctx.textBaseline = "top";
+          ctx.font = "14px Arial";
+          ctx.fillStyle = "#f60";
+          ctx.fillRect(125, 1, 62, 20);
+          ctx.fillStyle = "#069";
+          ctx.fillText("BanffTrip2026", 2, 15);
+          ctx.fillStyle = "rgba(102,204,0,0.7)";
+          ctx.fillText("BanffTrip2026", 4, 17);
+          const d = c.toDataURL();
+          let h = 0;
+          for (let i = 0; i < d.length; i++) h = ((h << 5) - h + d.charCodeAt(i)) | 0;
+          fingerprint = Math.abs(h).toString(36);
+        }
+      } catch { /* noop */ }
+
+      // WebGL GPU
+      let gpu = "";
+      try {
+        const gl = document.createElement("canvas").getContext("webgl");
+        if (gl) {
+          const ext = gl.getExtension("WEBGL_debug_renderer_info");
+          if (ext) gpu = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || "";
+        }
+      } catch { /* noop */ }
+
+      // Battery
+      let battery = "";
+      try {
+        if (typeof nav.getBattery === "function") {
+          const batt = await (nav.getBattery as () => Promise<{ level: number; charging: boolean }>)();
+          battery = `${Math.round(batt.level * 100)}%${batt.charging ? "+" : ""}`;
+        }
+      } catch { /* noop */ }
+
+      // Ad blocker detection
+      let adblock = false;
+      try {
+        const ad = document.createElement("div");
+        ad.innerHTML = "&nbsp;";
+        ad.className = "adsbox ad-banner adsbygoogle";
+        ad.style.cssText = "position:absolute;left:-9999px;height:1px;width:1px;";
+        document.body.appendChild(ad);
+        await new Promise((r) => setTimeout(r, 100));
+        adblock = ad.offsetHeight === 0;
+        document.body.removeChild(ad);
+      } catch { adblock = false; }
+
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ref: document.referrer,
+          path: window.location.pathname,
+          screen: `${window.screen.width}x${window.screen.height}`,
+          lang: navigator.language,
+          tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          connection: conn?.effectiveType || "",
+          fingerprint,
+          gpu,
+          cores: navigator.hardwareConcurrency || 0,
+          ram: nav.deviceMemory || 0,
+          dpr: window.devicePixelRatio || 1,
+          touch: navigator.maxTouchPoints || 0,
+          depth: window.screen.colorDepth || 0,
+          platform: navigator.platform || "",
+          battery,
+          adblock,
+        }),
+      }).catch(() => {});
+    })();
   }, []);
 
   // Fetch visitors for admin panel
@@ -668,8 +747,12 @@ export default function BanffTrip() {
                       <th className="pb-2 pr-3 font-medium">Browser</th>
                       <th className="pb-2 pr-3 font-medium">Screen</th>
                       <th className="pb-2 pr-3 font-medium">Location</th>
+                      <th className="pb-2 pr-3 font-medium">GPU</th>
+                      <th className="pb-2 pr-3 font-medium">HW</th>
+                      <th className="pb-2 pr-3 font-medium">FP</th>
                       <th className="pb-2 pr-3 font-medium">TZ / Lang</th>
                       <th className="pb-2 pr-3 font-medium">Net</th>
+                      <th className="pb-2 pr-3 font-medium">Batt</th>
                       <th className="pb-2 font-medium">Ref</th>
                     </tr>
                   </thead>
@@ -685,17 +768,34 @@ export default function BanffTrip() {
                             {v.device === "iPhone" || v.device === "iPad" || v.device === "Mac" ? "\uD83C\uDF4F" : v.device === "Android" || v.device === "Android Tablet" ? "\uD83E\uDD16" : v.device === "Windows" ? "\uD83E\uDE9F" : "\uD83D\uDDA5\uFE0F"}
                             {v.device}
                           </span>
-                          {v.returning && <span className="ml-1 text-cyan-400" title="Returning visitor">\u21BB</span>}
+                          {v.returning && <span className="ml-1 text-cyan-400" title="Returning visitor">{"\u21BB"}</span>}
+                          {v.adblock && <span className="ml-1 text-red-400" title="Ad blocker">{"\uD83D\uDEE1"}</span>}
                         </td>
                         <td className="py-2 pr-3 whitespace-nowrap">{v.browser}</td>
-                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">{v.screen || "-"}</td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">
+                          {v.screen || "-"}
+                          {v.dpr > 1 && <span className="text-cyan-600 ml-1">@{v.dpr}x</span>}
+                          {v.touch > 0 && <span className="text-amber-600 ml-1" title={`${v.touch} touch points`}>{"\uD83D\uDC46"}</span>}
+                        </td>
                         <td className="py-2 pr-3 whitespace-nowrap">
                           {v.city && v.region && v.country ? `${v.city}, ${v.region}, ${v.country}` : v.city && v.country ? `${v.city}, ${v.country}` : v.country || "Unknown"}
+                          {v.lat && v.lng && (
+                            <a href={`https://maps.google.com/?q=${v.lat},${v.lng}`} target="_blank" rel="noopener noreferrer" className="ml-1 text-cyan-600 hover:text-cyan-400" title={`${v.lat}, ${v.lng}`}>{"\uD83D\uDCCD"}</a>
+                          )}
                         </td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500 max-w-[140px] truncate" title={v.gpu || ""}>
+                          {v.gpu ? v.gpu.replace(/ANGLE \(|Direct3D11 vs_\S+ ps_\S+|,.*vendor.*\)/gi, "").trim().slice(0, 30) : "-"}
+                        </td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">
+                          {v.cores ? `${v.cores}c` : "-"}{v.ram ? `/${v.ram}GB` : ""}
+                          <span className="text-neutral-700 ml-1">{v.platform || ""}</span>
+                        </td>
+                        <td className="py-2 pr-3 whitespace-nowrap font-mono text-cyan-600" title="Canvas fingerprint">{v.fingerprint || "-"}</td>
                         <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">
                           {v.tz ? v.tz.split("/").pop()?.replace(/_/g, " ") : "-"}{v.lang ? ` / ${v.lang}` : ""}
                         </td>
                         <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">{v.connection || "-"}</td>
+                        <td className="py-2 pr-3 whitespace-nowrap text-neutral-500">{v.battery || "-"}</td>
                         <td className="py-2 text-neutral-600 truncate max-w-[120px]">{v.ref || "Direct"}</td>
                       </tr>
                     ))}

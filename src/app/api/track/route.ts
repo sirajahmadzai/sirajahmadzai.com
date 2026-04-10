@@ -10,6 +10,8 @@ interface Visitor {
   country: string;
   city: string;
   region: string;
+  lat: string;
+  lng: string;
   ref: string;
   path: string;
   screen: string;
@@ -17,6 +19,16 @@ interface Visitor {
   tz: string;
   connection: string;
   returning: boolean;
+  fingerprint: string;
+  gpu: string;
+  cores: number;
+  ram: number;
+  dpr: number;
+  touch: number;
+  depth: number;
+  platform: string;
+  battery: string;
+  adblock: boolean;
 }
 
 function parseUA(ua: string): { device: string; browser: string } {
@@ -79,6 +91,8 @@ export async function POST(req: NextRequest) {
     const country = req.headers.get("x-vercel-ip-country") || "";
     const city = req.headers.get("x-vercel-ip-city") || "";
     const region = req.headers.get("x-vercel-ip-country-region") || "";
+    const lat = req.headers.get("x-vercel-ip-latitude") || "";
+    const lng = req.headers.get("x-vercel-ip-longitude") || "";
     const body = await req.json().catch(() => ({}));
     const { device, browser } = parseUA(ua);
     const hashedIP = hashIP(ip);
@@ -96,6 +110,8 @@ export async function POST(req: NextRequest) {
       country,
       city: decodeURIComponent(city),
       region: decodeURIComponent(region),
+      lat,
+      lng,
       ref: (body.ref || "").slice(0, 200),
       path: (body.path || "/banff-trip-2026").slice(0, 100),
       screen: (body.screen || "").slice(0, 20),
@@ -103,6 +119,16 @@ export async function POST(req: NextRequest) {
       tz: (body.tz || "").slice(0, 40),
       connection: (body.connection || "").slice(0, 10),
       returning,
+      fingerprint: (body.fingerprint || "").slice(0, 20),
+      gpu: (body.gpu || "").slice(0, 100),
+      cores: Number(body.cores) || 0,
+      ram: Number(body.ram) || 0,
+      dpr: Number(body.dpr) || 0,
+      touch: Number(body.touch) || 0,
+      depth: Number(body.depth) || 0,
+      platform: (body.platform || "").slice(0, 30),
+      battery: (body.battery || "").slice(0, 10),
+      adblock: Boolean(body.adblock),
     };
 
     visitors.push(visitor);
