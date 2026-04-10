@@ -47,7 +47,7 @@ const days = [
       { time: "12:00 PM", text: "Lunch stop: Sudbury area (~480 km in). Packed food from coolers. Dhuhr prayer. 45 min.", tags: ["food", "prayer"] },
       { time: "2:30 PM", text: "Pit stop #2: Gas + stretch. Blind River area (~2 hrs after Sudbury).", tags: ["drive"] },
       { time: "4:30 PM", text: "ARRIVE SAULT STE MARIE.", tags: ["drive"] },
-      { time: "5:00 PM", text: "Asr prayer. Check in: Super 8 Sault Ste Marie (~$160/night). 8-10 rooms, request same floor. Designate one room as the hangout room.", tags: ["prayer", "hotel"] },
+      { time: "5:00 PM", text: "Asr prayer. Check in: Super 8 Sault Ste Marie (~$120/night). 8-10 rooms, request same floor. Designate one room as the hangout room.", tags: ["prayer", "hotel"] },
       { time: "6:00 PM", text: "Dinner: Soo Shawarma (129 Second Line W). Call ahead for group of 20. If closed, eat packed food from coolers.", tags: ["food"] },
       { time: "7:30 PM", text: "Walk the boardwalk along St. Marys River. Free. Good stretch for everyone after a long drive.", tags: ["activity"] },
       { time: "9:00 PM", text: "Isha prayer. Ice resupply for coolers. Hangout room. Early sleep.", tags: ["prayer"] },
@@ -66,7 +66,7 @@ const days = [
       { time: "3:30 PM", text: "Lunch: Marathon area (~530 km). Packed lunch from coolers. 45 min.", tags: ["food"] },
       { time: "4:15 PM", text: "Continue. Nipigon area. Gas if needed.", tags: ["drive"] },
       { time: "7:30 PM", text: "ARRIVE THUNDER BAY. Terry Fox Memorial right before town. Group photo. 15 min.", tags: ["drive", "photo"] },
-      { time: "8:00 PM", text: "Check in: Super 8 Thunder Bay (~$160/night) or Travelodge. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "8:00 PM", text: "Check in: Super 8 Thunder Bay (~$120/night) or Travelodge. Same floor, designate hangout room.", tags: ["hotel"] },
       { time: "8:30 PM", text: "Dinner: Malabar Mandi Kitchen (108 Frederica St E, 4.6 stars). Call ahead for group size. Otherwise packed food from coolers.", tags: ["food"] },
       { time: "10:00 PM", text: "Hangout room. Rest. Everyone will be tired.", tags: [] },
     ],
@@ -84,7 +84,7 @@ const days = [
       { time: "3:15 PM", text: "Cross Manitoba border. Welcome sign photo.", tags: ["photo"] },
       { time: "5:30 PM", text: "ARRIVE WINNIPEG.", tags: ["drive"] },
       { time: "5:45 PM", text: "GROCERY STOP #2: Basha Foods International, Winnipeg. Major restock for Days 3-5. Refill cooler ice.", tags: ["food"] },
-      { time: "6:30 PM", text: "Check in: Super 8 Winnipeg (~$150/night) or Days Inn. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "6:30 PM", text: "Check in: Super 8 Winnipeg (~$110/night) or Days Inn. Same floor, designate hangout room.", tags: ["hotel"] },
       { time: "7:00 PM", text: "The Forks. Free. Market, riverfront, open grass. All ages. Walk around, explore. 1.5 hours.", tags: ["activity"] },
       { time: "8:30 PM", text: "Dinner: Falafel Place (Pembina Hwy) or Ashur Restaurant (584 Pembina Hwy, Middle Eastern).", tags: ["food"] },
       { time: "10:00 PM", text: "Hangout room. Winnipeg is your midpoint recovery city.", tags: [] },
@@ -101,7 +101,7 @@ const days = [
       { time: "12:00 PM", text: "Pit stop: Brandon, MB (~210 km). Gas + stretch + snack from coolers.", tags: ["drive"] },
       { time: "1:30 PM", text: "Cross Saskatchewan border. Welcome sign photo. The Prairies are flat, endless, and beautiful. Windows down.", tags: ["drive", "photo"] },
       { time: "4:00 PM", text: "ARRIVE REGINA.", tags: ["drive"] },
-      { time: "4:15 PM", text: "Check in: Motel 6 Regina (~$140/night) or Super 8. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "4:15 PM", text: "Check in: Motel 6 Regina (~$100/night) or Super 8. Same floor, designate hangout room.", tags: ["hotel"] },
       { time: "5:00 PM", text: "Lunch/early dinner: Afghan Cuisine Restaurant (832 Albert St) or Amado’s Meat & Food Market (251 Albert St).", tags: ["food"] },
       { time: "6:00 PM", text: "RCMP Heritage Centre. $10/person. Interactive, educational. Great for all ages. 1.5 hours.", tags: ["activity"] },
       { time: "7:30 PM", text: "Wascana Park. Free. Walk the lake, stretch legs. 1 hour.", tags: ["activity"] },
@@ -124,7 +124,7 @@ const days = [
       { time: "7:00 PM", text: "Dinner in Calgary: Village Pita Bakery or Jimmy's A&A. Eat well, long day.", tags: ["food"] },
       { time: "7:45 PM", text: "DEPART for Canmore. 104 km, ~1 hr. Watch the Rockies appear on the horizon.", tags: ["drive"] },
       { time: "8:45 PM", text: "ARRIVE CANMORE.", tags: ["drive"] },
-      { time: "9:00 PM", text: "Check in: Canmore Inn & Suites (~$350/night) or Rocky Mountain Ski Lodge. Book suites with kitchenettes so you can cook meals. 8-10 rooms, 2 nights, same floor. Designate hangout room. MUST BE PRE-BOOKED.", tags: ["hotel"] },
+      { time: "9:00 PM", text: "Check in: Canmore Inn & Suites (~$200/night) or Rocky Mountain Ski Lodge. Book suites with kitchenettes so you can cook meals. 8-10 rooms, 2 nights, same floor. Designate hangout room. MUST BE PRE-BOOKED.", tags: ["hotel"] },
       { time: "9:30 PM", text: "Quick walk Canmore Main Street if you have energy. Mountain views everywhere. Otherwise, hangout room and crash.", tags: ["activity"] },
     ],
   },
@@ -181,7 +181,7 @@ const days = [
       { time: "4:00 PM", text: "Kamloops (~300 km from Revelstoke). Gas + stretch. 20 min.", tags: ["drive"] },
       { time: "6:00 PM", text: "Hope, BC (~200 km from Kamloops). Gas + stretch. Othello Tunnels optional (free, 30 min trail through old railway tunnels).", tags: ["drive", "activity"] },
       { time: "8:30 PM", text: "ARRIVE SURREY. Budget extra time for Metro Vancouver traffic (can add 30-60 min easily).", tags: ["drive"] },
-      { time: "9:00 PM", text: "Check in: Happy Day Inn Surrey (~$180/night) or Travelodge Langley. 8-10 rooms, 2 nights. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "9:00 PM", text: "Check in: Happy Day Inn Surrey (~$120/night) or Travelodge Langley. 8-10 rooms, 2 nights. Same floor, designate hangout room.", tags: ["hotel"] },
       { time: "9:30 PM", text: "THE FEAST. You drove across Canada. Celebrate. Afghan Horsemen (1833 Anderson St, Vancouver) or Pak Punjab Sweet & Samosas House (128 St, Surrey). Call ahead.", tags: ["food"] },
     ],
   },
@@ -220,9 +220,9 @@ const days = [
 
 const checklistItems = [
   { text: "Book Canmore hotels (8-10 rooms, 2 nights)", urgent: true },
-  { text: "Book YVR \u2192 YOW flights (15-20 one-way tickets, ~$400/person, AFTERNOON flights)", urgent: true },
+  { text: "Book YVR \u2192 YOW flights (15-20 one-way tickets, ~$200/person, book NOW, AFTERNOON flights)", urgent: true },
   { text: "Grocery run at Bilal Farms (2953 Carling Ave) the evening before departure. Marinated chicken, lamb, kebab meat, naan, wraps, fruit, drinks, snacks for Days 1-3. Fill coolers with ice.", urgent: true },
-  { text: "Book one-way SUV rentals (4 full-size SUVs, Ottawa \u2192 Vancouver, ~$4,500/vehicle)", urgent: false },
+  { text: "Book one-way SUV rentals (4 full-size SUVs, Ottawa \u2192 Vancouver, ~$3,000/vehicle, call for quotes)", urgent: false },
   { text: "No Parks Canada pass needed. Canada Strong Pass = FREE admission Jun 19 - Sep 7, 2026.", urgent: false },
   { text: "Confirm 8+ drivers with valid licenses", urgent: false },
   { text: "Buy 4 large coolers + ice packs", urgent: false },
@@ -623,12 +623,12 @@ export default function BanffTrip() {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
             {[
-              { label: "SUV Rental (split 5/car)", value: "$900" },
-              { label: "Gas (~$1,535/car \u00f7 5)", value: "$307" },
-              { label: "Hotels (8 nights)", value: "$835" },
-              { label: "Flight YVR\u2192YOW", value: "$400" },
-              { label: "Food (10 days)", value: "$405" },
-              { label: "Parks / Activities", value: "$35" },
+              { label: "SUV Rental (split 5/car)", value: "$600" },
+              { label: "Gas (~$1,146/car ÷ 5)", value: "$229" },
+              { label: "Hotels (8 nights)", value: "$400" },
+              { label: "Flight YVR→YOW", value: "$200" },
+              { label: "Food (10 days)", value: "$150" },
+              { label: "Parks / Activities", value: "FREE" },
             ].map((c) => (
               <div key={c.label}>
                 <p className="text-neutral-500">{c.label}</p>
@@ -640,11 +640,11 @@ export default function BanffTrip() {
             <div className="flex justify-between items-center">
               <p className="text-neutral-400 font-medium">Total Per Person</p>
               <p className="text-2xl font-black text-cyan-400">
-                ~$2,900
+                ~$1,600
               </p>
             </div>
             <p className="text-neutral-600 text-xs mt-2">
-              Gas: 4,630 km x 17 L/100km = 787 L/car x $1.95/L = ~$1,535/car. Hotels: 8 nights avg $167/room (Canmore peak: $350/night), 2 per room. SUV: $4,500/vehicle (10-day one-way, full-size, peak summer). Flight: $350 + checked bag. Parks Canada free Jun 19 - Sep 7 (Canada Strong Pass). All estimates conservative for peak summer 2026.
+              Gas: 4,630 km x 15 L/100km x $1.65/L = ~$1,146/car. Hotels: cheapest rooms, 2/room. SUV: $3,000/vehicle (book early, call for quotes). Flight: WestJet 1-stop at $199, carry-on only. Food: cook everything, buy in bulk. Parks Canada free Jun 19 - Sep 7 (Canada Strong Pass).
             </p>
           </div>
         </div>
