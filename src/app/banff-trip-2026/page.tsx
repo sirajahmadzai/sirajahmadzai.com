@@ -44,11 +44,11 @@ const days = [
       { time: "5:30 AM", text: "Meet at the Stittsville pickup point. Fajr prayer. Everyone catches up, loads bags and coolers into the SUVs. Figure out who rides where. Groceries and coolers already packed from the night before (Bilal Farms run). This easily takes 30-45 min with 15-20 guys.", tags: ["prayer"] },
       { time: "6:30 AM", text: "DEPART. Hwy 417 West to Trans-Canada. Lead SUV sets the pace, tail SUV makes sure nobody falls behind. All coordination through the WhatsApp group.", tags: ["drive"] },
       { time: "9:00 AM", text: "Pit stop #1: Gas + bathrooms. Deep River/Mattawa area (~250 km, ~2.5 hrs in). 20 min.", tags: ["drive"] },
-      { time: "12:00 PM", text: "Lunch stop: Sudbury area (~480 km in). Packed halal food from coolers. Dhuhr prayer. 45 min.", tags: ["food", "prayer"] },
+      { time: "12:00 PM", text: "Lunch stop: Sudbury area (~480 km in). Packed food from coolers. Dhuhr prayer. 45 min.", tags: ["food", "prayer"] },
       { time: "2:30 PM", text: "Pit stop #2: Gas + stretch. Blind River area (~2 hrs after Sudbury).", tags: ["drive"] },
       { time: "4:30 PM", text: "ARRIVE SAULT STE MARIE.", tags: ["drive"] },
-      { time: "5:00 PM", text: "Asr prayer. Check in: Super 8 Sault Ste Marie (~$130-160/night). 8-10 rooms, request same floor. Designate one room as the hangout room.", tags: ["prayer", "hotel"] },
-      { time: "6:00 PM", text: "Dinner: Soo Shawarma (129 Second Line W, halal Middle Eastern). Call ahead for group of 20. If closed, eat packed halal from coolers.", tags: ["food"] },
+      { time: "5:00 PM", text: "Asr prayer. Check in: Super 8 Sault Ste Marie (~$160/night). 8-10 rooms, request same floor. Designate one room as the hangout room.", tags: ["prayer", "hotel"] },
+      { time: "6:00 PM", text: "Dinner: Soo Shawarma (129 Second Line W). Call ahead for group of 20. If closed, eat packed food from coolers.", tags: ["food"] },
       { time: "7:30 PM", text: "Walk the boardwalk along St. Marys River. Free. Good stretch for everyone after a long drive.", tags: ["activity"] },
       { time: "9:00 PM", text: "Isha prayer. Ice resupply for coolers. Hangout room. Early sleep.", tags: ["prayer"] },
     ],
@@ -63,11 +63,11 @@ const days = [
       { time: "10:00 AM", text: "DEPART. LONGEST DAY. Gas stations get sparse north of SSM. Top off ALL vehicles before leaving.", tags: ["drive"] },
       { time: "12:30 PM", text: "Pit stop: Wawa (~230 km). Gas + stretch. PHOTO STOP: Wawa Goose (giant Canada goose statue). Younger ones will love it. 20 min.", tags: ["drive", "photo"] },
       { time: "2:30 PM", text: "Pit stop: White River area (~400 km). Gas. 'Coldest Spot in Canada' sign photo.", tags: ["drive", "photo"] },
-      { time: "3:30 PM", text: "Lunch: Marathon area (~530 km). Packed halal lunch from coolers. 45 min.", tags: ["food"] },
+      { time: "3:30 PM", text: "Lunch: Marathon area (~530 km). Packed lunch from coolers. 45 min.", tags: ["food"] },
       { time: "4:15 PM", text: "Continue. Nipigon area. Gas if needed.", tags: ["drive"] },
       { time: "7:30 PM", text: "ARRIVE THUNDER BAY. Terry Fox Memorial right before town. Group photo. 15 min.", tags: ["drive", "photo"] },
-      { time: "8:00 PM", text: "Check in: Super 8 Thunder Bay (~$140-170/night) or Travelodge. Same floor, designate hangout room.", tags: ["hotel"] },
-      { time: "8:30 PM", text: "Dinner: Malabar Mandi Kitchen (108 Frederica St E, halal, 4.6 stars). Call ahead for group size. Otherwise packed halal from coolers.", tags: ["food"] },
+      { time: "8:00 PM", text: "Check in: Super 8 Thunder Bay (~$160/night) or Travelodge. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "8:30 PM", text: "Dinner: Malabar Mandi Kitchen (108 Frederica St E, 4.6 stars). Call ahead for group size. Otherwise packed food from coolers.", tags: ["food"] },
       { time: "10:00 PM", text: "Hangout room. Rest. Everyone will be tired.", tags: [] },
     ],
   },
@@ -83,10 +83,10 @@ const days = [
       { time: "2:30 PM", text: "Kenora, ON (~490 km). Gas. Quick Lake of the Woods waterfront look. Lunch from coolers.", tags: ["drive", "food"] },
       { time: "3:15 PM", text: "Cross Manitoba border. Welcome sign photo.", tags: ["photo"] },
       { time: "5:30 PM", text: "ARRIVE WINNIPEG.", tags: ["drive"] },
-      { time: "5:45 PM", text: "HALAL GROCERY STOP #2: Basha Foods International, Winnipeg. Major restock for Days 3-5. Refill cooler ice.", tags: ["food"] },
-      { time: "6:30 PM", text: "Check in: Super 8 Winnipeg (~$120-150/night) or Days Inn. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "5:45 PM", text: "GROCERY STOP #2: Basha Foods International, Winnipeg. Major restock for Days 3-5. Refill cooler ice.", tags: ["food"] },
+      { time: "6:30 PM", text: "Check in: Super 8 Winnipeg (~$150/night) or Days Inn. Same floor, designate hangout room.", tags: ["hotel"] },
       { time: "7:00 PM", text: "The Forks. Free. Market, riverfront, open grass. All ages. Walk around, explore. 1.5 hours.", tags: ["activity"] },
-      { time: "8:30 PM", text: "Halal dinner: Falafel Place (Pembina Hwy) or Ashur Restaurant (584 Pembina Hwy, Middle Eastern).", tags: ["food"] },
+      { time: "8:30 PM", text: "Dinner: Falafel Place (Pembina Hwy) or Ashur Restaurant (584 Pembina Hwy, Middle Eastern).", tags: ["food"] },
       { time: "10:00 PM", text: "Hangout room. Winnipeg is your midpoint recovery city.", tags: [] },
     ],
   },
@@ -101,11 +101,11 @@ const days = [
       { time: "12:00 PM", text: "Pit stop: Brandon, MB (~210 km). Gas + stretch + snack from coolers.", tags: ["drive"] },
       { time: "1:30 PM", text: "Cross Saskatchewan border. Welcome sign photo. The Prairies are flat, endless, and beautiful. Windows down.", tags: ["drive", "photo"] },
       { time: "4:00 PM", text: "ARRIVE REGINA.", tags: ["drive"] },
-      { time: "4:15 PM", text: "Check in: Motel 6 Regina (~$120-150/night) or Super 8. Same floor, designate hangout room.", tags: ["hotel"] },
-      { time: "5:00 PM", text: "Lunch/early dinner: Afghan Cuisine Restaurant (832 Albert St, halal) or Amado\u2019s Halal Meat & Food Market (251 Albert St).", tags: ["food"] },
-      { time: "6:00 PM", text: "RCMP Heritage Centre. $12/person. Interactive, educational. Great for all ages. 1.5 hours.", tags: ["activity"] },
+      { time: "4:15 PM", text: "Check in: Motel 6 Regina (~$140/night) or Super 8. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "5:00 PM", text: "Lunch/early dinner: Afghan Cuisine Restaurant (832 Albert St) or Amado’s Meat & Food Market (251 Albert St).", tags: ["food"] },
+      { time: "6:00 PM", text: "RCMP Heritage Centre. $10/person. Interactive, educational. Great for all ages. 1.5 hours.", tags: ["activity"] },
       { time: "7:30 PM", text: "Wascana Park. Free. Walk the lake, stretch legs. 1 hour.", tags: ["activity"] },
-      { time: "8:30 PM", text: "Dinner from packed halal food or try another local halal spot.", tags: ["food"] },
+      { time: "8:30 PM", text: "Dinner from packed food or try another local spot.", tags: ["food"] },
       { time: "10:00 PM", text: "Hangout room. Rest. Tomorrow is a long push to the mountains.", tags: [] },
     ],
   },
@@ -120,11 +120,11 @@ const days = [
       { time: "12:30 PM", text: "Pit stop: Swift Current, SK (~250 km). Gas + stretch.", tags: ["drive"] },
       { time: "2:30 PM", text: "Pit stop: Medicine Hat, AB (~500 km). Gas. Lunch from coolers. You're in Alberta.", tags: ["drive", "food"] },
       { time: "5:30 PM", text: "ARRIVE CALGARY (~760 km). Do NOT skip this stop.", tags: ["drive"] },
-      { time: "5:45 PM", text: "HALAL GROCERY STOP #3 \u2014 THE BIG ONE. Madina Halal Meat & Grocery (4656 Westwinds Dr NE) or YYC Halal Meats (3770 Westwinds Dr NE). Buy: chicken, lamb, beef for cooking in Banff. Naan, rice, spices, marinated meats, drinks. This feeds you Days 5-8.", tags: ["food"] },
-      { time: "7:00 PM", text: "Halal dinner in Calgary: Village Pita Bakery or Jimmy's A&A (both well-known Calgary halal spots). Eat well, long day.", tags: ["food"] },
+      { time: "5:45 PM", text: "GROCERY STOP #3 — THE BIG ONE. Madina Meat & Grocery (4656 Westwinds Dr NE) or YYC Meats (3770 Westwinds Dr NE). Buy: chicken, lamb, beef for cooking in Banff. Naan, rice, spices, marinated meats, drinks. This feeds you Days 5-8.", tags: ["food"] },
+      { time: "7:00 PM", text: "Dinner in Calgary: Village Pita Bakery or Jimmy's A&A. Eat well, long day.", tags: ["food"] },
       { time: "7:45 PM", text: "DEPART for Canmore. 104 km, ~1 hr. Watch the Rockies appear on the horizon.", tags: ["drive"] },
       { time: "8:45 PM", text: "ARRIVE CANMORE.", tags: ["drive"] },
-      { time: "9:00 PM", text: "Check in: Canmore Inn & Suites (~$200-280/night) or Rocky Mountain Ski Lodge. Book suites with kitchenettes so you can cook halal meals. 8-10 rooms, 2 nights, same floor. Designate hangout room. MUST BE PRE-BOOKED.", tags: ["hotel"] },
+      { time: "9:00 PM", text: "Check in: Canmore Inn & Suites (~$350/night) or Rocky Mountain Ski Lodge. Book suites with kitchenettes so you can cook meals. 8-10 rooms, 2 nights, same floor. Designate hangout room. MUST BE PRE-BOOKED.", tags: ["hotel"] },
       { time: "9:30 PM", text: "Quick walk Canmore Main Street if you have energy. Mountain views everywhere. Otherwise, hangout room and crash.", tags: ["activity"] },
     ],
   },
@@ -138,12 +138,12 @@ const days = [
       { time: "10:00 AM", text: "DEPART for Johnston Canyon (~25 min from Canmore). It'll be busy by now but still worth it.", tags: ["drive"] },
       { time: "10:30 AM", text: "Johnston Canyon hike. Lower Falls (1.1 km, easy, all ages). Upper Falls (2.7 km, moderate, teens+adults). 2 hours. Group photos.", tags: ["activity", "photo"] },
       { time: "12:30 PM", text: "Lake Minnewanka (~25 min from Johnston Canyon). Walk the lakeshore. Mountain lake, crystal water. Free. 45 min.", tags: ["activity", "photo"] },
-      { time: "1:30 PM", text: "HALAL PICNIC at Cascade Ponds (~15 min from Minnewanka). Naan, kebab, salad, watermelon, green tea (prepped the night before at Canmore kitchen). 1 hour.", tags: ["food"] },
+      { time: "1:30 PM", text: "PICNIC at Cascade Ponds (~15 min from Minnewanka). Naan, kebab, salad, watermelon, green tea (prepped the night before at Canmore kitchen). 1 hour.", tags: ["food"] },
       { time: "2:30 PM", text: "Banff Avenue. Walk, browse shops, grab snacks. 1.5 hours.", tags: ["activity"] },
       { time: "4:00 PM", text: "Surprise Corner viewpoint. Iconic Fairmont + Bow River view. Free. Bow Falls next to it. 30 min.", tags: ["photo"] },
       { time: "4:30 PM", text: "Tunnel Mountain hike. 4.3 km round trip, 1.5 hrs, 360\u00b0 views. Teens + fit adults. Younger ones and elders can do the flat Fenland Trail instead.", tags: ["activity"] },
       { time: "6:00 PM", text: "Two Jack Lake. Rest by the water. 45 min.", tags: ["activity"] },
-      { time: "7:00 PM", text: "Back to Canmore (~20 min). Cook halal dinner at accommodation from Calgary groceries.", tags: ["drive", "food"] },
+      { time: "7:00 PM", text: "Back to Canmore (~20 min). Cook dinner at accommodation from Calgary groceries.", tags: ["drive", "food"] },
       { time: "9:00 PM", text: "Drive to Vermilion Lakes for sunset (~20 min from Canmore).", tags: ["drive"] },
       { time: "9:45 PM", text: "SUNSET at Vermilion Lakes. Mt. Rundle reflection. Best sunset in Banff. Free. Group photo. (Sunset ~9:55 PM in early July.)", tags: ["activity", "photo"] },
       { time: "10:15 PM", text: "Back to Canmore. Prep picnic food for tomorrow at the kitchen before bed.", tags: [] },
@@ -155,10 +155,10 @@ const days = [
     subtitle: "Big-ticket scenery day \u2022 Parks Canada: FREE (Canada Strong Pass)",
     route: "Canmore \u2192 Lake Louise \u2192 Icefields Parkway \u2192 Quarry Lake",
     items: [
-      { time: "9:00 AM", text: "Wake up. Breakfast. Pack all halal lunches into coolers.", tags: ["food"] },
+      { time: "9:00 AM", text: "Wake up. Breakfast. Pack lunches into coolers.", tags: ["food"] },
       { time: "10:00 AM", text: "DEPART for Lake Louise (~55 min from Canmore). Parking fills early, so use the Park & Ride shuttle from the overflow lot if needed.", tags: ["drive"] },
       { time: "11:00 AM", text: "Lake Louise. Turquoise water, Victoria Glacier. One of the most photographed spots on Earth. Walk the shoreline. 1.5 hours.", tags: ["activity", "photo"] },
-      { time: "12:30 PM", text: "Lunch: Packed halal from coolers. Picnic at Herbert Lake pullout (~15 min south). 45 min.", tags: ["food"] },
+      { time: "12:30 PM", text: "Lunch: Packed lunch from coolers. Picnic at Herbert Lake pullout (~15 min south). 45 min.", tags: ["food"] },
       { time: "1:15 PM", text: "Bow Lake + Peyto Lake viewpoint (drive north on Icefields Parkway). Stunning turquoise. Short walks. Free. 1.5 hours.", tags: ["activity", "photo"] },
       { time: "2:45 PM", text: "Turn around, drive back south toward Canmore (~1.5 hrs).", tags: ["drive"] },
       { time: "4:15 PM", text: "Quarry Lake, Canmore. Teens jump in. Elders take it in from the bench. 1 hour.", tags: ["activity"] },
@@ -181,8 +181,8 @@ const days = [
       { time: "4:00 PM", text: "Kamloops (~300 km from Revelstoke). Gas + stretch. 20 min.", tags: ["drive"] },
       { time: "6:00 PM", text: "Hope, BC (~200 km from Kamloops). Gas + stretch. Othello Tunnels optional (free, 30 min trail through old railway tunnels).", tags: ["drive", "activity"] },
       { time: "8:30 PM", text: "ARRIVE SURREY. Budget extra time for Metro Vancouver traffic (can add 30-60 min easily).", tags: ["drive"] },
-      { time: "9:00 PM", text: "Check in: Happy Day Inn Surrey (~$170-250/night) or Travelodge Langley. 8-10 rooms, 2 nights. Same floor, designate hangout room.", tags: ["hotel"] },
-      { time: "9:30 PM", text: "HALAL FEAST. You drove across Canada. Celebrate. Afghan Horsemen (1833 Anderson St, Vancouver, Afghan halal) or Pak Punjab Sweet & Samosas House (128 St, Surrey). Call ahead.", tags: ["food"] },
+      { time: "9:00 PM", text: "Check in: Happy Day Inn Surrey (~$180/night) or Travelodge Langley. 8-10 rooms, 2 nights. Same floor, designate hangout room.", tags: ["hotel"] },
+      { time: "9:30 PM", text: "THE FEAST. You drove across Canada. Celebrate. Afghan Horsemen (1833 Anderson St, Vancouver) or Pak Punjab Sweet & Samosas House (128 St, Surrey). Call ahead.", tags: ["food"] },
     ],
   },
   {
@@ -195,11 +195,11 @@ const days = [
       { time: "10:00 AM", text: "DEPART for Stanley Park (~45 min from Surrey with traffic). Finding parking spots for 4 SUVs takes time.", tags: ["drive"] },
       { time: "10:45 AM", text: "Stanley Park Seawall. Walk the seawall (free) or rent bikes (~$15-20/person). Totem Poles, harbour views, Lions Gate Bridge. 2.5 hours.", tags: ["activity", "photo"] },
       { time: "1:15 PM", text: "Drive to lunch. Budget 30 min for Vancouver traffic + parking.", tags: ["drive"] },
-      { time: "1:45 PM", text: "Halal lunch: Afghan Horsemen (1833 Anderson St, well-known Afghan halal) or Donair Dude (multiple locations).", tags: ["food"] },
+      { time: "1:45 PM", text: "Lunch: Afghan Horsemen (1833 Anderson St) or Donair Dude (multiple locations).", tags: ["food"] },
       { time: "3:00 PM", text: "Drive to Lynn Canyon (~20 min from downtown).", tags: ["drive"] },
       { time: "3:15 PM", text: "Lynn Canyon Park. FREE suspension bridge (Capilano charges $65+). Forest walks, waterfalls. All ages. 1.5 hours.", tags: ["activity", "photo"] },
       { time: "4:45 PM", text: "Drive through Gastown (steam clock, cobblestone streets) on the way back. Quick photo stops.", tags: ["drive", "photo"] },
-      { time: "6:00 PM", text: "Final halal dinner: Pak Punjab (Surrey) or Afghan Horsemen. Order big for the boys. Last meal before flying home.", tags: ["food"] },
+      { time: "6:00 PM", text: "Final dinner: Pak Punjab (Surrey) or Afghan Horsemen. Order big for the boys. Last meal before flying home.", tags: ["food"] },
       { time: "7:30 PM", text: "Back to hotel. PACK EVERYTHING for flights tomorrow.", tags: ["hotel"] },
     ],
   },
@@ -220,23 +220,23 @@ const days = [
 
 const checklistItems = [
   { text: "Book Canmore hotels (8-10 rooms, 2 nights)", urgent: true },
-  { text: "Book YVR \u2192 YOW flights (15-20 one-way tickets, ~$250-350/person, AFTERNOON flights)", urgent: true },
+  { text: "Book YVR \u2192 YOW flights (15-20 one-way tickets, ~$400/person, AFTERNOON flights)", urgent: true },
   { text: "Grocery run at Bilal Farms (2953 Carling Ave) the evening before departure. Marinated chicken, lamb, kebab meat, naan, wraps, fruit, drinks, snacks for Days 1-3. Fill coolers with ice.", urgent: true },
-  { text: "Book one-way SUV rentals (4 full-size SUVs, Ottawa \u2192 Vancouver, ~$3,000-4,500/vehicle)", urgent: false },
+  { text: "Book one-way SUV rentals (4 full-size SUVs, Ottawa \u2192 Vancouver, ~$4,500/vehicle)", urgent: false },
   { text: "No Parks Canada pass needed. Canada Strong Pass = FREE admission Jun 19 - Sep 7, 2026.", urgent: false },
   { text: "Confirm 8+ drivers with valid licenses", urgent: false },
   { text: "Buy 4 large coolers + ice packs", urgent: false },
   { text: "Create WhatsApp group for the trip (all drivers + passengers)", urgent: false },
-  { text: "Verify halal status of all restaurants 1-2 weeks before", urgent: false },
+  { text: "Verify restaurant options 1-2 weeks before", urgent: false },
   { text: "Each vehicle: chargers, first aid kit, prayer mats, water, snacks, phone mounts", urgent: false },
   { text: "Check which day is Friday and find nearest mosque for Jummah prayer", urgent: false },
-  { text: "Book Canmore suites with kitchenettes (needed to cook halal meals)", urgent: false },
+  { text: "Book Canmore suites with kitchenettes (needed to cook meals)", urgent: false },
   { text: "Prep Banff picnic (naan, kebab, salad, watermelon, green tea) the night before at Canmore kitchen", urgent: false },
 ];
 
 const tagConfig: Record<string, { bg: string; text: string; label: string }> = {
   drive: { bg: "bg-sky-950", text: "text-sky-300", label: "Drive" },
-  food: { bg: "bg-orange-950", text: "text-orange-300", label: "Halal Food" },
+  food: { bg: "bg-orange-950", text: "text-orange-300", label: "Food" },
   activity: { bg: "bg-green-950", text: "text-green-300", label: "Activity" },
   hotel: { bg: "bg-purple-950", text: "text-purple-300", label: "Hotel" },
   prayer: { bg: "bg-stone-900", text: "text-stone-400", label: "Prayer" },
@@ -623,12 +623,12 @@ export default function BanffTrip() {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
             {[
-              { label: "SUV Rental (split 5/car)", value: "$600 - $900" },
-              { label: "Gas (~$1,080/car \u00f7 5)", value: "$215" },
-              { label: "Hotels (8 nights)", value: "$550 - $900" },
-              { label: "Flight YVR\u2192YOW", value: "$250 - $350" },
-              { label: "Food (10 days)", value: "$300 - $500" },
-              { label: "Parks", value: "FREE" },
+              { label: "SUV Rental (split 5/car)", value: "$900" },
+              { label: "Gas (~$1,535/car \u00f7 5)", value: "$307" },
+              { label: "Hotels (8 nights)", value: "$835" },
+              { label: "Flight YVR\u2192YOW", value: "$400" },
+              { label: "Food (10 days)", value: "$405" },
+              { label: "Parks / Activities", value: "$35" },
             ].map((c) => (
               <div key={c.label}>
                 <p className="text-neutral-500">{c.label}</p>
@@ -640,11 +640,11 @@ export default function BanffTrip() {
             <div className="flex justify-between items-center">
               <p className="text-neutral-400 font-medium">Total Per Person</p>
               <p className="text-2xl font-black text-cyan-400">
-                $1,900 - $2,850
+                ~$2,900
               </p>
             </div>
             <p className="text-neutral-600 text-xs mt-2">
-              Gas: 4,630 km x 15 L/100km = 695 L/car x $1.55/L = ~$1,080/car. Hotels: 8 nights avg $150/room, 2 people/room. Parks Canada admission free Jun 19 - Sep 7 (Canada Strong Pass).
+              Gas: 4,630 km x 17 L/100km = 787 L/car x $1.95/L = ~$1,535/car. Hotels: 8 nights avg $167/room (Canmore peak: $350/night), 2 per room. SUV: $4,500/vehicle (10-day one-way, full-size, peak summer). Flight: $350 + checked bag. Parks Canada free Jun 19 - Sep 7 (Canada Strong Pass). All estimates conservative for peak summer 2026.
             </p>
           </div>
         </div>
