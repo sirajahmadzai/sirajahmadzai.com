@@ -88,15 +88,18 @@ export default function HomePage() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-4">Software Engineer</h3>
                     <p className="text-muted-foreground mb-4">
-                      With expertise in modern web technologies, I specialize in building scalable applications using
-                      React, Next.js, Node.js, and cloud platforms. I&apos;m passionate about clean code, performance
+                      Senior full-stack engineer who owns the whole stack from native iOS down to the backend.
+                      I ship 0&rarr;1 MVPs in Python (FastAPI, Django), TypeScript (Next.js, React), and Swift / SwiftUI for iOS.
+                      I&apos;m passionate about clean code, performance
                       optimization, and creating seamless user experiences.
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary">React</Badge>
-                      <Badge variant="secondary">Next.js</Badge>
+                      <Badge variant="secondary">Python</Badge>
                       <Badge variant="secondary">TypeScript</Badge>
-                      <Badge variant="secondary">Node.js</Badge>
+                      <Badge variant="secondary">Swift / iOS</Badge>
+                      <Badge variant="secondary">Next.js</Badge>
+                      <Badge variant="secondary">FastAPI</Badge>
+                      <Badge variant="secondary">PostgreSQL</Badge>
                       <Badge variant="secondary">AWS</Badge>
                     </div>
                   </CardContent>
@@ -145,8 +148,41 @@ export default function HomePage() {
                   <CardContent className="p-6">
                     <div className="space-y-4">
                       <div className="flex items-start justify-between">
-                        <h3 className="text-xl font-semibold">Keyword Research Panel</h3>
+                        <h3 className="text-xl font-semibold">YTGrab</h3>
                         <Badge variant="secondary">Latest</Badge>
+                      </div>
+                      <p className="text-muted-foreground">
+                        Free, ad-free native iOS app to download YouTube audio as M4A. SwiftUI app with a Share
+                        Extension talking to a FastAPI / yt-dlp backend on Fly.io free tier. End-to-end in a weekend,
+                        $0/mo to run.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline">Swift</Badge>
+                        <Badge variant="outline">SwiftUI</Badge>
+                        <Badge variant="outline">FastAPI</Badge>
+                        <Badge variant="outline">Fly.io</Badge>
+                      </div>
+                      <div className="flex gap-3 pt-2">
+                        <Link
+                          href="https://github.com/sirajahmadzai/ytgrab"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Github className="h-4 w-4" />
+                          Source Code
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between">
+                        <h3 className="text-xl font-semibold">Keyword Research Panel</h3>
+                        <Badge variant="secondary">Tool</Badge>
                       </div>
                       <p className="text-muted-foreground">
                         A comprehensive keyword research tool that helps content creators and marketers discover 
@@ -266,7 +302,7 @@ export default function HomePage() {
                         <Mail className="h-5 w-5 text-primary" />
                         <div>
                           <p className="font-medium">Email</p>
-                          <p className="text-muted-foreground">siraj.ahmadzai@carleton.ca</p>
+                          <p className="text-muted-foreground">info@peakspire.ca</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
